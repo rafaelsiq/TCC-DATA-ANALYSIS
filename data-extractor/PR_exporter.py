@@ -6,7 +6,7 @@ repo_owner = "facebook"
 repo_name = "react"
 start_date = "2022-12-31"
 end_date = "2023-12-31"
-token = "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"
+token = ""
 
 url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/pulls"
 

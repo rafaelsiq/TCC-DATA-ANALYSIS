@@ -8,7 +8,7 @@ commits_prs_collection = db["commits_prs"]
 commits_collection = db["commits"]
 commit_diffs_collection = db["commit_diffs"]
 
-GITHUB_TOKEN = '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'
+GITHUB_TOKEN = 'token'
 
 # Cabeçalhos de autenticação
 headers = {

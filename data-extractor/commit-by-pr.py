@@ -8,7 +8,7 @@ collection = db['commits_prs']
 # Configurações do GitHub
 repo_owner = 'facebook'
 repo_name = 'react'
-headers = {'Authorization': 'token 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'}
+headers = {'Authorization': 'token'}
 
 # Datas de início e fim
 start_date = '2022-12-31T00:00:00Z'

@@ -40,6 +40,49 @@ pd_prs Index(['_id', 'url', 'id', 'node_id', 'html_url', 'diff_url', 'patch_url'
        'auto_merge', 'active_lock_reason'],
       dtype='object')
 pd_commits_prs Index(['_id', 'commit_hash', 'pull_number'], dtype='object')
+pd_commit Index(['_id_x', 'commit_sha', 'node_id', 'url', 'html_url', 'comments_url',
+       'parents', 'commit.author.name', 'commit.author.email',
+       'commit.author.date', 'commit.committer.name', 'commit.committer.email',
+       'commit.committer.date', 'commit.message', 'commit.tree.sha',
+       'commit.tree.url', 'commit.url', 'commit.comment_count',
+       'commit.verification.verified', 'commit.verification.reason',
+       'commit.verification.signature', 'commit.verification.payload',
+       'author.login', 'author.id', 'author.node_id', 'author.avatar_url',
+       'author.gravatar_id', 'author.url', 'author.html_url',
+       'author.followers_url', 'author.following_url', 'author.gists_url',
+       'author.starred_url', 'author.subscriptions_url',
+       'author.organizations_url', 'author.repos_url', 'author.events_url',
+       'author.received_events_url', 'author.type', 'author.site_admin',
+       'committer.login', 'committer.id', 'committer.node_id',
+       'committer.avatar_url', 'committer.gravatar_id', 'committer.url',
+       'committer.html_url', 'committer.followers_url',
+       'committer.following_url', 'committer.gists_url',
+       'committer.starred_url', 'committer.subscriptions_url',
+       'committer.organizations_url', 'committer.repos_url',
+       'committer.events_url', 'committer.received_events_url',
+       'committer.type', 'committer.site_admin', 'files', 'stats.total',
+       'stats.additions', 'stats.deletions', 'author', 'committer', '_id_y',
+       'diff'],
+      dtype='object')
+pd_issues Index(['_id', 'url', 'repository_url', 'labels_url', 'comments_url',
+       'events_url', 'html_url', 'id', 'node_id', 'number', 'title', 'user',
+       'labels', 'state', 'locked', 'assignee', 'assignees', 'milestone',
+       'comments', 'created_at', 'updated_at', 'closed_at',
+       'author_association', 'active_lock_reason', 'draft', 'pull_request',
+       'body', 'reactions', 'timeline_url', 'performed_via_github_app',
+       'state_reason'],
+      dtype='object')
+pd_prs Index(['_id', 'url', 'id', 'node_id', 'html_url', 'diff_url', 'patch_url',
+       'issue_url', 'number', 'state', 'locked', 'title', 'user', 'body',
+       'created_at', 'updated_at', 'closed_at', 'merged_at',
+       'merge_commit_sha', 'assignee', 'assignees', 'requested_reviewers',
+       'requested_teams', 'labels', 'milestone', 'draft', 'commits_url',
+       'review_comments_url', 'review_comment_url', 'comments_url',
+       'statuses_url', 'head', 'base', '_links', 'author_association',
+       'auto_merge', 'active_lock_reason'],
+      dtype='object')
+pd_commits_prs Index(['_id', 'commit_hash', 'pull_number'], dtype='object')
+pd_commit_file_history Index(['_id', 'commit', 'data'], dtype='object')
 
 1)Extração de features >
 
@@ -51,4 +94,4 @@ se(pd_issues(number) == pd_commits_prs(pull_number)) # significa que teve PR, co
 
 se(pd_issues(number) == pd_commits_prs(pull_number)) # significa que teve PR, consequentemente teve commits
   > pd_commits_prs(commit_hash) == pd_commit(commit_sha) # encontra os commits relacionados aos pd_prs
-  > pd_commit(). extraia features importantes do git diff como o arquivo alterado, a alteracao feita e quantidade de linhas dentre outros
+  > pd_commit(commit_sha) == pd_commit_file_history(commit). extraia pd_commit_file_history(data) que contem os arquivos alterados e o ultimo commit que alterou o arquivo em questao.
